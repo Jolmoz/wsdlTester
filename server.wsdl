@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<definitions xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="localhost:81/docunet_web/webservice/documental/server.php?wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl">
+<types>
+<xsd:schema targetNamespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl"
+>
+ <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+ <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+</xsd:schema>
+</types>
+<message name="cnslta_sriesRequest"></message>
+<message name="cnslta_sriesResponse">
+  <part name="return" type="xsd:Array" /></message>
+<message name="cnslta_tpo_crptasRequest">
+  <part name="id_srie" type="xsd:integer" /></message>
+<message name="cnslta_tpo_crptasResponse">
+  <part name="return" type="xsd:Array" /></message>
+<message name="cnslta_tpo_dcmntosRequest">
+  <part name="id_tpo_crpta" type="xsd:integer" /></message>
+<message name="cnslta_tpo_dcmntosResponse">
+  <part name="return" type="xsd:Array" /></message>
+<portType name="ApplicationServicesPortType">
+  <operation name="cnslta_sries">
+    <input message="tns:cnslta_sriesRequest"/>
+    <output message="tns:cnslta_sriesResponse"/>
+  </operation>
+  <operation name="cnslta_tpo_crptas">
+    <input message="tns:cnslta_tpo_crptasRequest"/>
+    <output message="tns:cnslta_tpo_crptasResponse"/>
+  </operation>
+  <operation name="cnslta_tpo_dcmntos">
+    <input message="tns:cnslta_tpo_dcmntosRequest"/>
+    <output message="tns:cnslta_tpo_dcmntosResponse"/>
+  </operation>
+</portType>
+<binding name="ApplicationServicesBinding" type="tns:ApplicationServicesPortType">
+  <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+  <operation name="cnslta_sries">
+    <soap:operation soapAction="http://localhost/docunet_web/webservice/documental/server.php/cnslta_sries" style="rpc"/>
+    <input><soap:body use="encoded" namespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="cnslta_tpo_crptas">
+    <soap:operation soapAction="http://localhost/docunet_web/webservice/documental/server.php/cnslta_tpo_crptas" style="rpc"/>
+    <input><soap:body use="encoded" namespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+  <operation name="cnslta_tpo_dcmntos">
+    <soap:operation soapAction="http://localhost/docunet_web/webservice/documental/server.php/cnslta_tpo_dcmntos" style="rpc"/>
+    <input><soap:body use="encoded" namespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></input>
+    <output><soap:body use="encoded" namespace="localhost:81/docunet_web/webservice/documental/server.php?wsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/></output>
+  </operation>
+</binding>
+<service name="ApplicationServices">
+  <port name="ApplicationServicesPort" binding="tns:ApplicationServicesBinding">
+    <soap:address location="http://localhost:81/docunet_web/webservice/documental/server.php"/>
+  </port>
+</service>
+</definitions>
